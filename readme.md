@@ -3,7 +3,7 @@ Piratebay desktop
 
 Copy from [piratebay-downloader](https://github.com/angel-git/piratebay-downloader) using Grunt to create a desktop port.
 
-![Image](screenGui.png?raw=true)
+![Image](image1.png?raw=true)
 
 ## dependencies
 - grunt
