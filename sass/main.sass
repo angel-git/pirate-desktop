@@ -1,0 +1,170 @@
+//color vars: http://www.google.com/design/spec/style/color.html#color-ui-color-palette
+$pink-50: #f3e5f5
+
+
+$purple-50: #f3e5f5
+$purple-100: #e1bee7
+$purple-200: #ce93d8
+$purple-300: #ba68c8
+$purple-400: #ab47bc
+$purple-500: #9c27b0
+$purple-600: #8e24aa
+$purple-700: #7b1fa2
+$purple-800: #6a1b9a
+$purple-900: #4a148c
+
+$hover-background-color: $purple-200
+$hover-text-color: $purple-50
+$border-radius-wrapper: 2px
+$border-wrapper: 1px solid $purple-100
+$margin-wrapper: 5px
+$background-color-wrapper: $purple-50
+$padding-wrapper: 4px
+$height-list: 500px
+
+//TODO: series-wrapper and torrent-wrapper can be merged
+
+//functions
+=font-smoothing($val: antialiased)
+  -webkit-font-smoothing: $val
+  -moz-font-smoothing: $val
+  -ms-font-smoothing: $val
+  -o-font-smoothing: $val
+
+@mixin text-selection($sel)
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+
+.float-right
+  float: right !important
+
+.float-left
+  float: left !important
+
+html,
+body
+  overflow: hidden
+  background: $purple-50
+  cursor: default
+  font-family: 'Helvetica Neue', Arial, sans-serif
+  font-size: 13px
+  @include font-smoothing(antialiased)
+  color: $purple-500
+
+
+#window-controls
+  .button
+    height: 10px
+    width: 10px
+    display: block
+    background: #5b595c
+    border-radius: 5em
+    float: right
+    margin: 10px 2px
+    -webkit-transition: 0.2s
+    cursor: pointer
+    &.close:hover
+      background: red
+
+    &.maximize:hover
+      background: green
+
+    &.minimize:hover
+      background: yellow
+
+.main-content
+  clear: both
+
+.wrapper
+  border-bottom: $border-wrapper
+  background-color: $background-color-wrapper
+  padding: $padding-wrapper $padding-wrapper 6px
+  position: relative
+  margin-right: 6px
+
+  
+.loading
+  background: url("../images/ajax-loader.gif") no-repeat center
+  height: 400px
+  width: 400px
+.loading-serie
+  background: url("../images/ajax-loader.gif") no-repeat center
+  height: 400px
+  width: 180px
+
+.btn-wrapper
+  height: 50px
+  margin-top: 20px
+  position: relative
+  @include text-selection(none)
+  .btn
+    padding: 5px
+    border: $border-wrapper
+    cursor: pointer
+    font-weight: bold
+    &:hover
+      color: $hover-text-color
+      background-color: $hover-background-color
+
+//series info
+#series-list
+  height: $height-list
+  overflow-y: scroll
+  width: 180px
+  .serie-wrapper
+    text-align: center
+    color: $purple-500
+    cursor: pointer
+    &.firstep
+      background-color: #ccff90
+    &.lastep
+      background-color: #ff7997
+    &:hover
+      color: $hover-text-color
+      background-color: $hover-background-color
+    .serie-title
+      font-weight: bold
+    .serie-ep
+      color: $purple-900
+      font-size: 9px
+
+//torrent info
+#torrents-content
+  display: inline-block
+  .torrents-list
+    height: $height-list
+    overflow: auto
+    padding-left: 20px
+    width: 550px
+    .torrent-wrapper
+      &:hover
+        background-color: $hover-background-color
+        .torrent-text .torrent-title a
+          color: $hover-text-color
+      .torrent-text
+        display: inline-table
+        .torrent-title
+          font-weight: bold
+          a
+            text-decoration: none
+            font-weight: bold
+            color: $purple-500
+        .torrent-info
+          color: $purple-900
+          font-size: 9px
+      .torrent-numbers
+        right: 0
+        position: absolute
+        height: 100%
+        top: 0
+        .torrent-seed
+          padding: 5px
+          color: green
+        .torrent-leed
+          padding: 5px
+          color: red
