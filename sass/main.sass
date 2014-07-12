@@ -22,8 +22,6 @@ $background-color-wrapper: $purple-50
 $padding-wrapper: 4px
 $height-list: 500px
 
-//TODO: series-wrapper and torrent-wrapper can be merged
-
 //functions
 =font-smoothing($val: antialiased)
   -webkit-font-smoothing: $val
@@ -136,12 +134,22 @@ body
 //torrent info
 #torrents-content
   display: inline-block
-  .torrents-list
-    height: $height-list
+  height: $height-list
+  overflow-y: auto
+  width: 550px
+  table
+    width: 100%
+    border-spacing: 0
+    thead
+      border-bottom: $border-wrapper
+    th
+      color: $purple-900
+    td
+      padding: 5px
+      border-bottom: $border-wrapper
     overflow: auto
     padding-left: 20px
-    width: 550px
-    .torrent-wrapper
+    tbody tr
       &:hover
         background-color: $hover-background-color
         .torrent-text .torrent-title a
@@ -157,14 +165,7 @@ body
         .torrent-info
           color: $purple-900
           font-size: 9px
-      .torrent-numbers
-        right: 0
-        position: absolute
-        height: 100%
-        top: 0
-        .torrent-seed
-          padding: 5px
-          color: green
-        .torrent-leed
-          padding: 5px
-          color: red
+      .torrent-seed
+        color: green
+      .torrent-leed
+        color: red

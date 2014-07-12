@@ -71,7 +71,7 @@ $ ->
 @searchSeries = (dateToSeach) ->
   $("#series-list").html('')
   $("#series-list").addClass('loading-serie')
-  CalendarDownloader.getSeriesDate dateToSeach, (response) ->
+  getSeriesDate dateToSeach, (response) ->
     $('#series-list').removeClass('loading-serie')
     $('#current-day').html(today.getDate())
     serieHtml = ''
@@ -90,28 +90,25 @@ $ ->
 
 
 @searchDataEpisode = (target) ->
-  $("#torrents-content").html('')
   $('#torrents-content').addClass('loading')
   if (target.hasClass("serie-wrapper"))
     episode = target.attr("data-episode")
-    PirateDownloader.getTorrents episode, (response) ->
+    getTorrents episode, (response) ->
       $('#torrents-content').removeClass('loading')
       if response.length < 1
+        $("#torrent-body").html('')
         alert('no result')
       else
-        torrentsHtml = '<div class="torrents-list">'
+        torrentsHtml = ''
         for torrent in response
-          torrentsHtml += '<div class="torrent-wrapper wrapper">'
+          torrentsHtml += ' <tr><td>'
           torrentsHtml +=   '<span class="torrent-text">'
           torrentsHtml +=     '<div class="torrent-title"><a href="' +torrent.link + '">' + torrent.name + '</a></div>'
           torrentsHtml +=     '<div class="torrent-info">' + torrent.desc + '</div>'
-          torrentsHtml +=   '</span>'
-          torrentsHtml +=   '<span class="torrent-numbers">'
-          torrentsHtml +=     '<span class="torrent-seed">' + torrent.seeds + '</span>'
-          torrentsHtml +=     '<span class="torrent-leed">' + torrent.leeds + '</span>'
-          torrentsHtml +=   '</span>'
-          torrentsHtml += '</div>'
-        torrentsHtml += '</div>'
-      $("#torrents-content").html(torrentsHtml)
+          torrentsHtml +=   '</span></td>'
+          torrentsHtml +=     '<td  align="center" class="torrent-seed">' + torrent.seeds + '</td>'
+          torrentsHtml +=     '<td  align="center" class="torrent-leed">' + torrent.leeds + '</td>'
+          torrentsHtml +=   '</tr>'
+      $("#torrent-body").html(torrentsHtml)
   else
     searchDataEpisode(target.parent())
