@@ -76,7 +76,7 @@ $ ->
     $('#current-day').html(today.getDate())
     serieHtml = ''
     for serie in response
-      serieHtml += '<div class="serie-wrapper wrapper ' + serie.className + '" data-episode="' + serie.serie + ' ' + serie.episode + '">'
+      serieHtml += '<div class="serie-wrapper wrapper ' + serie.className + '" data-episode="' + serie.serie + ' ' + serie.episode + '" data-serie="'+ serie.serie+'">'
       serieHtml += '<div class="serie-title">' + serie.serie + '</div>'
       serieHtml += '<div class="serie-ep">' + serie.episode + '</div>'
       serieHtml += '</div>'
@@ -110,5 +110,11 @@ $ ->
           torrentsHtml +=     '<td  align="center" class="torrent-leed">' + torrent.leeds + '</td>'
           torrentsHtml +=   '</tr>'
       $("#torrent-body").html(torrentsHtml)
+
+    serieTitle = target.attr('data-serie')
+    $('#serie-title').html(serieTitle)
+    $('#serie-cover').attr('src','')
+    getSerieInfo serieTitle, (response) ->
+      $('#serie-cover').attr('src',response)
   else
     searchDataEpisode(target.parent())

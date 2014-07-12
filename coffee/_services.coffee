@@ -54,6 +54,14 @@ calendarContent = ''
       success? torrentList
 
 
+@getSerieInfo = (serieTitle, success) ->
+  urlRequest = 'http://www.imdb.com/find?q=' + serieTitle + '&s=tt'
+  request.get urlRequest, (error, response, body) ->
+    searchResult = $(body).find('#main .findList .findResult img').attr('src')
+    success? searchResult
+
+
+
 @parseEpisode = (epInput) ->
   episode = ''
   splitted = epInput.split(' ')
