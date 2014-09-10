@@ -11,6 +11,7 @@ Copy from [piratebay-downloader](https://github.com/angel-git/piratebay-download
 - npm sass
 - npm xml2js
 - npm request
+- npm mustache
 
 ## building
 - do `npm install` to get dependencies under the project folder
@@ -18,4 +19,4 @@ Copy from [piratebay-downloader](https://github.com/angel-git/piratebay-download
 
 ## issues
 - some layout issues
-- does not run behing a proxy
+- does not run behind a proxy

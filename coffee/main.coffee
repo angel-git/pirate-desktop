@@ -1,6 +1,8 @@
 # Load native UI library
 gui = require('nw.gui')
 
+fs = require('fs')
+
 # Get window object (!= $(window))
 win = gui.Window.get()
 
@@ -24,8 +26,16 @@ window.addEventListener "dragstart", preventDefault, false
 today = new Date()
 month = today.getMonth()
 
+templates = {}
 # start init
 $ ->
+
+  #load templates
+  serieTemplate = fs.readFileSync "./tpl/serie-list.tpl"
+  torrentTemplate = fs.readFileSync "./tpl/torrent-list.tpl"
+  templates["serie-list"] = serieTemplate.toString()
+  templates["torrent-list"] = torrentTemplate.toString()
+
   $("#searchButton").focus()
 
   $("#window-controls .maximize").click(()->
@@ -74,12 +84,7 @@ $ ->
   getSeriesDate dateToSeach, (response) ->
     $('#series-list').removeClass('loading-serie')
     $('#current-day').html(today.getDate())
-    serieHtml = ''
-    for serie in response
-      serieHtml += '<div class="serie-wrapper wrapper ' + serie.className + '" data-episode="' + serie.serie + ' ' + serie.episode + '" data-serie="'+ serie.serie+'">'
-      serieHtml += '<div class="serie-title">' + serie.serie + '</div>'
-      serieHtml += '<div class="serie-ep">' + serie.episode + '</div>'
-      serieHtml += '</div>'
+    serieHtml = renderTemplate templates["serie-list"], response
     $("#series-list").html(serieHtml)
     $("#series-list .serie-wrapper").click((event)->
       searchDataEpisode($(event.target))
@@ -99,16 +104,7 @@ $ ->
         $("#torrent-body").html('')
         alert('no result')
       else
-        torrentsHtml = ''
-        for torrent in response
-          torrentsHtml += ' <tr><td>'
-          torrentsHtml +=   '<span class="torrent-text">'
-          torrentsHtml +=     '<div class="torrent-title"><a href="' +torrent.link + '">' + torrent.name + '</a></div>'
-          torrentsHtml +=     '<div class="torrent-info">' + torrent.desc + '</div>'
-          torrentsHtml +=   '</span></td>'
-          torrentsHtml +=     '<td  align="center" class="torrent-seed">' + torrent.seeds + '</td>'
-          torrentsHtml +=     '<td  align="center" class="torrent-leed">' + torrent.leeds + '</td>'
-          torrentsHtml +=   '</tr>'
+        torrentsHtml = renderTemplate templates["torrent-list"], response
       $("#torrent-body").html(torrentsHtml)
 
     serieTitle = target.attr('data-serie')

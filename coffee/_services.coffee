@@ -1,8 +1,12 @@
 request = require('request');
+mustache = require('mustache')
 
 {parseString} = require('xml2js')
 
 calendarContent = ''
+
+@renderTemplate = (templateInput, data) ->
+  return mustache.render templateInput, data
 
 @getSeriesDate = (dateToSearch, success) ->
   month = dateToSearch.getMonth() + 1
