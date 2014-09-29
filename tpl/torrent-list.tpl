@@ -11,7 +11,7 @@
             <tr>
                 <td>
                     <span class="torrent-text">
-                        <div class="torrent-title"><a href="{{torrent.link}}">{{name}}</a></div>
+                        <div class="torrent-title"><a href="{{link}}">{{name}}</a></div>
                         <div class="torrent-info">{{desc}}</div>
                     </span>
                 </td>
