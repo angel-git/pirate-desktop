@@ -108,6 +108,16 @@ body
     &:hover
       color: $hover-text-color
       background-color: $hover-background-color
+    &.btn-prev
+      position: absolute
+    &.btn-next
+      position: absolute
+      right: 0
+  #current-day
+    position: absolute
+    left: 81px
+    top: 7px
+
 
 //series info
 #series-list
@@ -136,10 +146,11 @@ body
   .serie-image
     border-bottom: $border-wrapper
     padding-bottom: 5px
+    height: 50px
   display: inline-block
   height: $height-list
   overflow-y: auto
-  width: 550px
+  width: 600px
   table
     width: 100%
     border-spacing: 0

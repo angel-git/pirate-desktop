@@ -101,8 +101,7 @@ $ ->
     getTorrents episode, (response) ->
       $('#torrents-content').removeClass('loading')
       if response.length < 1
-        $("#torrent-body").html('')
-        alert('no result')
+        $("#torrent-body").html('<h1 style="text-align: center">no torrents found :(</h1>')
       else
         torrentsHtml = renderTemplate templates["torrent-list"], response
       $("#torrent-body").html(torrentsHtml)

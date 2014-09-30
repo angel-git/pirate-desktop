@@ -18,5 +18,5 @@ Copy from [piratebay-downloader](https://github.com/angel-git/piratebay-download
 - grunt build --platforms=linux32,linux64,mac,win
 
 ## issues
-- some layout issues
 - does not run behind a proxy
+- can't change month
