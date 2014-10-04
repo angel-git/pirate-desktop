@@ -5,6 +5,7 @@
     "window": {
         "title": "Piratebay-downloader",
         "toolbar": false,
+        "frame": false,
         "width": 800,
         "height": 600,
         "reseizable": false

@@ -3,7 +3,18 @@ Piratebay desktop
 
 Copy from [piratebay-downloader](https://github.com/angel-git/piratebay-downloader) using Grunt to create a desktop port.
 
+## version 0.0.1
+
 ![Image](image1.png?raw=true)
+
+## version 0.0.2
+![Image](image2.png?raw=true)
+
+### Improvements
+- mustache templates
+- frame dropped
+- minor css issues
+
 
 ## dependencies
 - grunt
@@ -18,5 +29,4 @@ Copy from [piratebay-downloader](https://github.com/angel-git/piratebay-download
 - grunt build --platforms=linux32,linux64,mac,win
 
 ## issues
-- does not run behind a proxy
 - can't change month

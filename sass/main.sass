@@ -22,6 +22,8 @@ $background-color-wrapper: $purple-50
 $padding-wrapper: 4px
 $height-list: 500px
 
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300)
+
 //functions
 =font-smoothing($val: antialiased)
   -webkit-font-smoothing: $val
@@ -49,23 +51,27 @@ body
   overflow: hidden
   background: $purple-50
   cursor: default
-  font-family: 'Helvetica Neue', Arial, sans-serif
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif
   font-size: 13px
   @include font-smoothing(antialiased)
   color: $purple-500
 
+header
+  -webkit-app-region: drag
+  height: 30px
 
 #window-controls
   .button
-    height: 10px
-    width: 10px
+    height: 13px
+    width: 13px
     display: block
-    background: #5b595c
+    background: $purple-900
     border-radius: 5em
     float: right
-    margin: 10px 2px
+    margin: 3px 2px
     -webkit-transition: 0.2s
     cursor: pointer
+    -webkit-app-region: no-drag
     &.close:hover
       background: red
 
