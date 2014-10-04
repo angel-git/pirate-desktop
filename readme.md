@@ -8,12 +8,13 @@ Copy from [piratebay-downloader](https://github.com/angel-git/piratebay-download
 ![Image](image1.png?raw=true)
 
 ## version 0.0.2
-![Image](image2.png?raw=true)
 
 ### Improvements
 - mustache templates
 - frame dropped
 - minor css issues
+
+![Image](image2.png?raw=true)
 
 
 ## dependencies
