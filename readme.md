@@ -14,7 +14,7 @@ Copy from [piratebay-downloader](https://github.com/angel-git/piratebay-download
 - frame dropped
 - minor css issues
 
-![Image](image2.png?raw=true)
+![Image](image3.png?raw=true)
 
 
 ## dependencies
