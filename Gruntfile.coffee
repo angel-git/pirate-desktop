@@ -76,7 +76,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', ['sass', 'coffee']
   grunt.registerTask 'nodewkbuild', ['nodewebkit']
   grunt.registerTask 'run', ['default', 'shell:runnw']
-  grunt.registerTask 'build', ['default', 'clean', 'regex-replace', 'nodewkbuild', 'compress']
+  grunt.registerTask 'build', ['default', 'clean', 'regex-replace', 'nodewkbuild']
 
 parseBuildPlatforms = (argumentPlatform) ->
 

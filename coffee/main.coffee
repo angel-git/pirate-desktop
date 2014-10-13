@@ -95,6 +95,7 @@ $ ->
 
 
 @searchDataEpisode = (target) ->
+  $('#torrent-body').html ''
   $('#torrents-content').addClass('loading')
   if (target.hasClass("serie-wrapper"))
     episode = target.attr("data-episode")
